@@ -13,6 +13,12 @@
         document.addEventListener( 'resume', onResume.bind( this ), false );
 
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
+        /*navigator.globalization.getPreferredLanguage(
+            function (language) { console.log('language: ' + language.value + '\n'); },
+            function () { console.log('Error getting language\n'); }
+        );*/
+        angular.bootstrap(document, ['myApp']);
+
     };
 
     function onPause() {
@@ -35,3 +41,29 @@
         page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
     }
 });*/
+
+//ons.bootstrap();
+//var myApp = ons.bootstrap('app', ['onsen', 'pascalprecht.translate']);
+
+var myApp = angular.module('myApp', ['pascalprecht.translate']);
+//var myApp = angular.module('myApp', ['onsen','pascalprecht.translate']);
+myApp.config(['$translateProvider', function ($translateProvider) {
+    console.log(findLanguage());
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'scripts/translate/lang_',
+        suffix: '.json'
+    });
+    $translateProvider.preferredLanguage(findLanguage());
+    $translateProvider.fallbackLanguage("en");
+    $translateProvider.useMissingTranslationHandlerLog();
+    console.log("preferredLanguage was set");
+}]);
+
+
+function findLanguage() {
+    try {
+        return (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0, 2)
+    } catch (e) {
+        return "en";
+    }
+}

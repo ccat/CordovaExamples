@@ -1,19 +1,39 @@
 ﻿<!DOCTYPE html>
-<html lang="ja">
+<!--
+<html lang="ja"  ng-app="myApp">
+    -->
+<html lang="ja" >
 <head>
-  <meta charset="utf-8" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="mobile-web-app-capable" content="yes" />
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
 
-  <!-- JS dependencies (order matters!) -->
-  <script src="scripts/platformOverrides.js"></script>
-  <script src="lib/onsen/js/onsenui.js"></script>
+    <!-- JS dependencies (order matters!) -->
+    <script src="scripts/platformOverrides.js"></script>
 
-  <!-- CSS dependencies -->
-  <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
-  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components-blue-basic-theme.css" />
+    <script src="lib/angular-1.5.8/angular.js"></script>
+    <script src="lib/angular-translate-2.9.0.1/angular-translate.js"></script>
+    <script src="lib/loader-static-files.js"></script>
 
-  <title>Onsen UI</title>
+    <script src="lib/onsen/js/onsenui.js"></script>
+
+    <!--
+    <script>
+        var module = ons.bootstrap('myApp', ['onsen']);
+      /*ons.bootstrap();
+      /*ons.ready(function() {
+      // Add another Onsen UI element
+      var content = document.getElementById("my-content");
+      content.innerHTML="<ons-button>Another Button</ons-button>";
+      ons.compile(content);
+    });*/
+      </script>
+        -->
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components-blue-basic-theme.css" />
+
+    <title>Onsen UI</title>
 
     <!--
     <style>
@@ -40,14 +60,56 @@
 </head>
 
 <body>
-  <!-- Cordova reference -->
-  <script src="cordova.js"></script>
-  <script src="scripts/index.js"></script>
-  <ons-navigator id="myNavigator" page="dashboard.html"></ons-navigator>
-  <script src="scripts/grid1.js"></script>
+    <!-- Cordova reference -->
+    <script src="cordova.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/grid1.js"></script>
 
+    <ons-navigator id="myNavigator" var="myNavigator" page="dashboard.html"></ons-navigator>
+
+    <ons-template id="dashboard.html">
+        <ons-toolbar>
+            <div class="center">Navigator</div>
+        </ons-toolbar>
+
+        <div style="text-align: center">
+            <h1 translate="index.read"></h1>
+            <p translate="appName"></p>
+            <br>
+            <ons-button onclick="myNavigator.pushPage('grid1.html')">
+                Grid 1
+            </ons-button>
+        </div>
+    </ons-template>
+
+    <ons-template id="grid1.html">
+        <ons-page id="grid1">
+            <ons-toolbar>
+                <div class="center">Navigator</div>
+            </ons-toolbar>
+
+            <ons-row>
+                <ons-col width="33%"><ons-icon icon="fa-twitter" id="icon1" size="100px"></ons-icon></ons-col>
+                <ons-col width="33%">Text</ons-col>
+                <ons-col width="33%">Text2</ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col width="33%"><ons-icon icon="fa-feed" size="100px"></ons-icon></ons-col>
+                <ons-col width="33%">Text</ons-col>
+                <ons-col width="33%">Text2</ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col width="150px"><ons-icon icon="fa-twitter-square" size="100px"></ons-icon></ons-col>
+                <ons-col>Text</ons-col>
+            </ons-row>
+        </ons-page>
+    </ons-template>
 
     <!--
+    <ons-navigator id="myNavigator" var="myNavigator" page="dashboard.html"></ons-navigator>
+
+    <ons-navigator id="myNavigator" page="dashboard.html"></ons-navigator>
+
     <ons-navigator id="myNavigator" page="page1.html"></ons-navigator>
     <ons-template id="page1.html">
         <ons-page id="page1">
