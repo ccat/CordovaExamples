@@ -1,0 +1,10 @@
+{
+  "dashboard": {
+    "navi": "Navigation",
+    "message": "Please select"
+  },
+  "grid1": {
+    "navi": "Navigation",
+    "message1": "Message"
+  }
+}

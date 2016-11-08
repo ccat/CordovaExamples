@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+    <!--
+        必要に応じて、次のメタ タグでコンテンツ セキュリティ ポリシーをカスタマイズします。default-src に 'unsafe-inline' を追加して、インライン JavaScript を有効にします。
+        詳細については、http://go.microsoft.com/fwlink/?LinkID=617521 を参照してください。
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    -->
+        
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="lib/onsenui/css/onsenui.css">
+        <link rel="stylesheet" type="text/css" href="lib/onsenui/css/onsen-css-components-blue-basic-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>BlankCordovaApp2</title>
+
+        <script type="text/javascript" src="lib/angular/angular.js"></script>
+
+        <script type="text/javascript" src="lib/angular-translate/angular-translate.js"></script>
+        <script src="lib/angular-translate/angular-translate-loader-static-files.js"></script>
+
+        <script type="text/javascript" src="lib/onsenui/js/onsenui.js"></script>
+        <script type="text/javascript" src="lib/onsenui/js/angular-onsenui.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+
+    </head>
+    <body  ng-controller="AppController">
+
+
+        <ons-navigator id="myNavigator" var="myNavigator">
+            <ons-page id="dashboard" ng-controller="PageController">
+                <ons-toolbar>
+                    <div class="center" >Navi</div>
+                </ons-toolbar>
+
+                <div style="text-align: center">
+                    <p translate="dashboard.message"></p>
+                    <p>aa {{ "dashboard.message" | translate }}</p>
+                    <br>
+                    <ons-button ng-click="myNavigator.pushPage('grid1.html')">
+                        Grid 1
+                    </ons-button>
+                </div>
+            </ons-page>
+        </ons-navigator>
+
+        <ons-template id="grid1.html">
+            <ons-page id="grid1"  ng-controller="PageController">
+                <ons-toolbar>
+                    <div class="center">Navigator</div>
+                </ons-toolbar>
+
+                <ons-row>
+                    <ons-col width="33%"><ons-icon icon="fa-twitter" id="icon1" size="100px"></ons-icon></ons-col>
+                    <ons-col width="33%"><p>aa {{ "dashboard.message" | translate }}</p></ons-col>
+                    <ons-col width="33%"><p>bb</p></ons-col>
+                </ons-row>
+                <ons-row>
+                    <ons-col width="33%"><ons-icon icon="fa-feed" size="100px"></ons-icon></ons-col>
+                    <ons-col width="33%">Text</ons-col>
+                    <ons-col width="33%">Text2</ons-col>
+                </ons-row>
+                <ons-row>
+                    <ons-col width="150px"><ons-icon icon="fa-twitter-square" size="100px"></ons-icon></ons-col>
+                    <ons-col>Text</ons-col>
+                </ons-row>
+            </ons-page>
+        </ons-template>
+
+    </body>
+</html>

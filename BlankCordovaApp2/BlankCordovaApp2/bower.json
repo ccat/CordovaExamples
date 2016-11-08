@@ -1,0 +1,12 @@
+{
+  "name": "BlankCordovaApp2",
+  "dependencies": {
+    "angular": "1.5.5",
+    "font-awesome": "4.6.1",
+    "onsenui": "^2.0.4",
+    "angular-translate": "^2.13.0"
+  },
+  "devDependencies": {
+    "angular-translate": "^2.13.0"
+  }
+}

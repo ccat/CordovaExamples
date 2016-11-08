@@ -1,0 +1,6 @@
+{
+  "name": "BlankCordovaApp1",
+  "dependencies": {
+    "onsenui": "^2.0.4"
+  }
+}
